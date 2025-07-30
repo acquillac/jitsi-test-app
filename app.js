@@ -14,7 +14,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Routes
 app.get('/', (req, res) => {
-  res.render('index', { roomName: 'welcomr-test-room' });
+  const randomRoom = `welcomr_${Math.floor(Math.random() * 1000000000)}`;
+  res.render('index', {
+    roomName: randomRoom,
+    userDisplayName: 'Test Mentor'
+  });
 });
 
 app.listen(PORT, () => {
